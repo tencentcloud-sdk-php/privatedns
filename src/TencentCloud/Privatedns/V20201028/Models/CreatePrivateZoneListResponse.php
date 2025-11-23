@@ -18,35 +18,19 @@ namespace TencentCloud\Privatedns\V20201028\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeAccountVpcList返回参数结构体
+ * CreatePrivateZoneList返回参数结构体
  *
- * @method integer getTotalCount() 获取关联账号VPC数量
- * @method void setTotalCount(integer $TotalCount) 设置关联账号VPC数量
- * @method array getVpcSet() 获取关联账号VPC 列表
- * @method void setVpcSet(array $VpcSet) 设置关联账号VPC 列表
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeAccountVpcListResponse extends AbstractModel
+class CreatePrivateZoneListResponse extends AbstractModel
 {
-    /**
-     * @var integer 关联账号VPC数量
-     */
-    public $TotalCount;
-
-    /**
-     * @var array 关联账号VPC 列表
-     */
-    public $VpcSet;
-
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 关联账号VPC数量
-     * @param array $VpcSet 关联账号VPC 列表
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,19 +46,6 @@ class DescribeAccountVpcListResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
-            $this->TotalCount = $param["TotalCount"];
-        }
-
-        if (array_key_exists("VpcSet",$param) and $param["VpcSet"] !== null) {
-            $this->VpcSet = [];
-            foreach ($param["VpcSet"] as $key => $value){
-                $obj = new AccountVpcInfoOut();
-                $obj->deserialize($value);
-                array_push($this->VpcSet, $obj);
-            }
-        }
-
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
             $this->RequestId = $param["RequestId"];
         }
